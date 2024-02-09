@@ -4,6 +4,7 @@ import { LinkedList } from "../DS/index.js";
 const list = new LinkedList(5);
 list.insert(5);
 list.insert(9);
+list.insert(5);
 list.insert(60);
 list.insert(9);
 list.insert(88);
@@ -27,3 +28,23 @@ export function removeDuplicates() {
   }
   console.log("map", map);
 }
+
+export function removeDuplicatesRunner() {
+  debugger;
+  let slow = list.getHead();
+
+  while (slow) {
+    let runner = slow;
+
+    while (runner.next) {
+      if (slow.value === runner.next.value) {
+        runner.next = runner.next.next;
+      } else {
+        runner = runner.next;
+      }
+    }
+    slow = slow.next;
+  }
+}
+
+// list.print();

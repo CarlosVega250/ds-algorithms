@@ -60,5 +60,3 @@ export default function test() {
 
   list.print();
 }
-
-console.log("test", test());
